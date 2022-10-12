@@ -3,10 +3,13 @@ const router = express.Router()
 
 
 router.get('/', (req, res) => {
-    res.redirect('/login')
+    res.redirect('/register')
 })
 
-const login = require('./login')
+const regist = require('./auth/register')
+router.use('/register', regist)
+
+const login = require('./auth/login')
 router.use('/login', login)
 
 
