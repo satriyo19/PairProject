@@ -10,11 +10,14 @@
     
 </body>
 </html><form action="/register" method="post">
-    User Name <br>
-    <input type="userName" name="username"> <br>
+    <p style="color:#FF0000"><%=error%></p> <br>
+    User Name<br>
+    <input type="text" name="username"> <br>
+    Email <br>
+    <input type="text" name="email"> <br>
     Password <br>
     <input type="password" name="password"><br>
     Role<br>
-    <input type="userName" name="role"> <br>
+    <input type="text" name="role"> <br>
     <input type="submit">
 </form>
