@@ -15,10 +15,30 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ProfileUser.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    location: DataTypes.STRING,
-    contact: DataTypes.STRING,
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+      notNull: {msg: 'Nama depan harus'}
+  }},
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+      notNull: {msg: 'Nama belakang harus diisi'}
+  }},
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+      notNull: {msg: 'Lokasi harus diisi'}
+  }},
+    contact: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+      notNull: {msg: 'Nomor wajib diisi'}
+  }},
     UserId: DataTypes.INTEGER
   }, {
     sequelize,

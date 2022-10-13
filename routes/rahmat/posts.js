@@ -8,5 +8,6 @@ router.get('/', PostController.renderPost)
 router.get('/add', PostController.renderAddPost)
 router.post('/add', PostController.addPostHandler)
 router.post('/:id/delete', PostController.deletePosts)
+router.get('/logout', PostController.getLogout)
 
 module.exports = router

@@ -17,7 +17,7 @@
                 <div class="card">
                     <img src="<%= el.imgUrl %>" class="card-img-top" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title"><%= el.title %> post by <%= el.User.username %> in <%= el.User.ProfileUser.location %><%= timeAgo(el.createdAt) %></h5>
+                      <h5 class="card-title"><%= el.title %> post by <%= el.User.username %> in <%= el.User.ProfileUser.location %></h5>
                       <p class="card-text"><%= el.content %></p>
                       <a class="btn btn-warning" href="posts/<%=el.id%>" role="button">Edit</a>
                       <a class="btn btn-danger" href="posts/<%=el.id %>/delete" role="button">Delete</a>
