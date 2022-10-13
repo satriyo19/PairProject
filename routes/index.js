@@ -12,7 +12,7 @@ router.use('/register', regist)
 const login = require('./auth/login')
 router.use('/login', login)
 
-const post = require('./rahmat/posts')
+const post = require('./homepage/posts')
 router.use('/posts', post)
 
 

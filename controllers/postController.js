@@ -5,28 +5,42 @@ const { Op } = require('sequelize')
 class PostController{
     
     static renderPost(req, res) {
-        Post.findAll({
+
+        let option = {
             include: {
+                where: {
+
+                },
                 model : User,
                 attributes: ['username'],
                 include: {
                     model: ProfileUser,
                     attributes: ['location']
                 }
+            },
+        }
+
+        let {username} = req.query
+
+        if (username) {
+            option.include.where.username = {
+                [Op.iLike]: `%${username}%`
             }
-        })
+        }
+
+        Post.findAll(option)
         .then((data)=> {
             // res.send(data)
-            res.render('rahmat/posts', {data, timeAgo})
+            res.render('homepage/posts', {data, timeAgo})
         })
         .catch((err)=>{
-            console.log(err)
+            // console.log(err)
             res.send(err)
         })
     }
 
     static renderAddPost(req, res) {
-        res.render('rahmat/addPosts')
+        res.render('homepage/addPosts')
     }
 
     static addPostHandler(req, res) {
@@ -46,7 +60,7 @@ class PostController{
             Post.findByPk(id)
             .then((data) => {
                 // res.send(data)
-                res.render('rahmat/editPosts', {data} )
+                res.render('homepage/editPosts', {data} )
             })
             .catch((err) => {
                 res.send(err)
