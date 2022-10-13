@@ -35,7 +35,7 @@ class UserController{
     //REGISTER
     static renderRegister(req, res){
         let error = req.query.error 
-        console.log(req.query)
+        // console.log(req.query)
         res.render('auth/register', {error})
     }
 

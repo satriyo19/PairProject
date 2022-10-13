@@ -12,6 +12,9 @@ router.use('/register', regist)
 const login = require('./auth/login')
 router.use('/login', login)
 
+const post = require('./rahmat/posts')
+router.use('/posts', post)
+
 
 
 module.exports = router
