@@ -20,11 +20,8 @@
                 <div class="card">
                     <img src="<%= el.imgUrl %>" class="card-img-top" alt="...">
                     <div class="card-body">
-<<<<<<< HEAD:views/rahmat/posts.ejs
                       <h5 class="card-title"><%= el.title %> post by <%= el.User.username %> in <%= el.User.ProfileUser.location %></h5>
-=======
                       <h5 class="card-title"><%= el.title %> post by <%= el.User.username %> in <%= el.User.ProfileUser.location %> <%= timeAgo(el.createdAt) %> </h5>
->>>>>>> 257d2b0566171ea524877183967eade97d263e80:views/homepage/posts.ejs
                       <p class="card-text"><%= el.content %></p>
                       <a class="btn btn-warning" href="/posts/<%=el.id%>/edit" role="button">Edit</a>
                       <a class="btn btn-danger" href="/posts/<%=el.id %>/delete" role="button">Delete</a>

@@ -12,7 +12,6 @@ router.use('/register', regist)
 const login = require('./auth/login')
 router.use('/login', login)
 
-
 const loggedIn = function(req, res, next) {
     if(!req.session.userId){
         const error = 'Please Login'
