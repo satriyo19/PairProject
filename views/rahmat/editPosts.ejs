@@ -14,7 +14,7 @@
         <br>
         <div class="input-group">
             <span class="input-group-text">Content</span>
-            <textarea name="content" value="<%= data.content %> " class="form-control" aria-label="With textarea"></textarea>
+            <textarea name="content" class="form-control" aria-label="With textarea"><%= data.content %></textarea>
         </div>
             <br>
             <div class="form-floating mb-3">
@@ -27,12 +27,12 @@
             </div>
             <select name="TagId" class="form-select" aria-label="Default select example">
                 <option selected>--Select Tag--</option>
-                <option value="1" <%= data.Post[0].TagId === "1" ? "selected" : "" %>>Technology</option>
-                <option value="2" <%= data.Post[0].TagId === "2" ? "selected" : "" %>>Comedy</option>
-                <option value="3" <%= data.Post[0].TagId === "3" ? "selected" : "" %>>Education</option>
-                <option value="4" <%= data.Post[0].TagId === "4" ? "selected" : "" %>>Romance</option>
-                <option value="5" <%= data.Post[0].TagId === "5" ? "selected" : "" %>>Entertainment</option>
-                <option value="6" <%= data.Post[0].TagId === "6" ? "selected" : "" %>>Music</option>
+                <option value="1" <%= data.TagId === "1" ? "selected" : "" %>>Technology</option>
+                <option value="2" <%= data.TagId === "2" ? "selected" : "" %>>Comedy</option>
+                <option value="3" <%= data.TagId === "3" ? "selected" : "" %>>Education</option>
+                <option value="4" <%= data.TagId === "4" ? "selected" : "" %>>Romance</option>
+                <option value="5" <%= data.TagId === "5" ? "selected" : "" %>>Entertainment</option>
+                <option value="6" <%= data.TagId === "6" ? "selected" : "" %>>Music</option>
               </select>
             <br>
             <div class="form-floating mb-3">

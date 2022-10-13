@@ -41,16 +41,35 @@ class PostController{
         })
     }
 
-    static renderEditPost(req, res) {
+    static renderEditPosts(req, res) {
             let id = req.params.id
             Post.findByPk(id)
             .then((data) => {
-                res.render('editPosts', {data} )
+                // res.send(data)
+                res.render('rahmat/editPosts', {data} )
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+    }
+
+    static editPostsHandler(req, res) {
+            let id = req.params.id
+            let {content, title, imgUrl, TagId, UserId} = req.body
+    
+            Post.update({content, title, imgUrl, TagId, UserId}, {
+                where: {
+                    id: `${id}`
+                }
+            })
+            .then((data) => {
+                res.redirect(`/posts`)
             })
             .catch((err) => {
                 res.send(err)
             })
         }
+    
     
 
     static deletePosts(req, res) {
