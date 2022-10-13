@@ -11,12 +11,33 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Post.belongsTo(models.User)
+      Post.belongsTo(models.Tag)
     }
   }
   Post.init({
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
-    imgUrl: DataTypes.STRING
+    imgUrl: DataTypes.STRING,
+    TagId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Tags',
+        key: 'id'
+      },
+      onUpdate: 'cascade',
+      onDelete: 'cascade'
+    },
+    UserId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id'
+      },
+      onUpdate: 'cascade',
+      onDelete: 'cascade'
+    }
+    
   }, {
     sequelize,
     modelName: 'Post',
