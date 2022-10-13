@@ -16,11 +16,12 @@ class PostController{
             }
         })
         .then((data)=> {
+            // console.log(data)
             // res.send(data)
             res.render('rahmat/posts', {data, timeAgo})
         })
         .catch((err)=>{
-            console.log(err)
+            // console.log(err)
             res.send(err)
         })
     }
@@ -31,12 +32,13 @@ class PostController{
 
     static addPostHandler(req, res) {
         let {content, title, imgUrl, TagId, UserId} = req.body
-        console.log(req.body)
+        // console.log(req.body)
         Post.create({content, title, imgUrl, TagId, UserId})
-        .then((data) => {
+        .then(() => {
             res.redirect('/posts')
         })
         .catch((err) => {
+            // console.log(err)
             res.send(err)
         })
     }

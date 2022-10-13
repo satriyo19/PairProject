@@ -3,7 +3,7 @@ const UserController = require('../../controllers/userController')
 const router = express.Router()
 
 router.get('/', UserController.renderLogin)
-// router.post('/', UserController.handlerLogin)
+router.post('/', UserController.handlerLogin)
 
 
 
