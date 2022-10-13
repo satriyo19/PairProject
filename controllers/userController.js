@@ -40,8 +40,10 @@ class UserController{
     }
 
     static handlerRegister(req, res){
+
         let {username, password, role, email} = req.body
         // console.log(req.body)
+
         User.create({username, password, email, role})
             .then(() => {
                 res.redirect('/login')
