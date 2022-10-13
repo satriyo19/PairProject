@@ -43,9 +43,20 @@ class PostController{
         })
     }
 
+    static renderEditPost(req, res) {
+            let id = req.params.id
+            Post.findByPk(id)
+            .then((data) => {
+                res.render('editPosts', {data} )
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+        }
+    
+
     static deletePosts(req, res) {
         let id = req.params.id
-
         Post.destroy({
             where: {
                 id: id
