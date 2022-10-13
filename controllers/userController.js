@@ -8,6 +8,7 @@ class UserController{
 
     static handlerLogin(req, res){
         let {username, password} = req.body
+        
     }
 
     //REGISTER
@@ -18,7 +19,7 @@ class UserController{
     static handlerRegister(req, res){
         let {username, password, role} = req.body
 
-        User.create({username, password, role})
+        User.create({username, password, email, role})
             .then(() => {
                 res.redirect('/login')
             })
