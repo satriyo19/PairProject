@@ -1,5 +1,6 @@
 'use strict';
-let fs = require('fs')
+const fs = require('fs');
+const { join, parse } = require('path');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -13,14 +14,13 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    let data = fs.readFileSync("./tags.json", "utf-8")
-    let dataUsers = JSON.parse(data).map(el => {
+    let data = fs.readFileSync("./tags.json", "utf-8") 
+    let dataTags = JSON.parse(data).map(el => {
       el.createdAt = new Date()
       el.updatedAt = new Date()
       return el
     })
-
-    return queryInterface.bulkInsert("Users", dataUsers)
+    return queryInterface.bulkInsert("Tags", dataTags)
   },
 
    down (queryInterface, Sequelize) {
@@ -30,6 +30,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete("Users", null)
+    return queryInterface.bulkDelete("Tags", null)
   }
 };
